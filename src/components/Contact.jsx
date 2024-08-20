@@ -93,7 +93,8 @@ export default function Contact() {
                       _hover={{ bg: '#0D74FF' }}
                       icon={<MdFacebook size="28px" />}
                     />
-                    <IconButton
+                    <a href="https://github.com/jhonatancarreazo/">
+                      <IconButton
                       aria-label="github"
                       variant="ghost"
                       size="lg"
@@ -101,6 +102,8 @@ export default function Contact() {
                       _hover={{ bg: '#0D74FF' }}
                       icon={<BsGithub size="28px" />}
                     />
+                    </a>
+                    
                     <IconButton
                       aria-label="discord"
                       variant="ghost"
