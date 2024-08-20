@@ -27,8 +27,29 @@ import {
   MdOutlineEmail,
 } from 'react-icons/md'
 import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs'
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_oky3toa', 'template_vnijdh3', form.current, 'ssi_ZXUvbImnEaPLl')
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          alert('El mensaje ha sido enviado con éxito.');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          alert('Hubo un error al enviar el mensaje, inténtalo nuevamente.');
+        },
+      );
+  };
+
   return (
     <Container bg="#9DC4FB" maxW="full" mt={0} centerContent overflow="hidden">
       <Flex>
@@ -44,30 +65,12 @@ export default function Contact() {
                 <Box>
                   <Heading>Contacto</Heading>
                   <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
-                  Rellena el siguiente formulario para contactarme directamente:
+                    Rellena el siguiente formulario para contactarme directamente:
                   </Text>
                   <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
                     <VStack pl={0} spacing={3} alignItems="flex-start">
-                      <Button
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdPhone color="#1970F1" size="20px" />}>
-                        +57-3015856174
-                      </Button>
-                      <Button
-                        size="md"
-                        height="48px"
-                        width="200px"
-                        variant="ghost"
-                        color="#DCE2FF"
-                        _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdEmail color="#1970F1" size="20px" />}>
-                        Jhonatan.carreazoa@gmail.com
-                      </Button>
+                      
+                     
                       <Button
                         size="md"
                         height="48px"
@@ -76,7 +79,7 @@ export default function Contact() {
                         color="#DCE2FF"
                         _hover={{ border: '2px solid #1C6FEB' }}
                         leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
-                       Cartagena, Colombia.
+                        Cartagena, Colombia.
                       </Button>
                     </VStack>
                   </Box>
@@ -93,8 +96,7 @@ export default function Contact() {
                       _hover={{ bg: '#0D74FF' }}
                       icon={<MdFacebook size="28px" />}
                     />
-                    <a href="https://github.com/jhonatancarreazo/">
-                      <IconButton
+                    <IconButton
                       aria-label="github"
                       variant="ghost"
                       size="lg"
@@ -102,8 +104,6 @@ export default function Contact() {
                       _hover={{ bg: '#0D74FF' }}
                       icon={<BsGithub size="28px" />}
                     />
-                    </a>
-                    
                     <IconButton
                       aria-label="discord"
                       variant="ghost"
@@ -119,39 +119,47 @@ export default function Contact() {
                 <Box bg="white" borderRadius="lg">
                   <Box m={8} color="#0B0E3F">
                     <VStack spacing={5}>
-                      <FormControl id="name">
-                        <FormLabel>Tu Nombre:</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                          <InputLeftElement pointerEvents="none">
-                            <BsPerson color="gray.800" />
-                          </InputLeftElement>
-                          <Input type="text" size="md" />
-                        </InputGroup>
-                      </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Correo:</FormLabel>
-                        <InputGroup borderColor="#E0E1E7">
-                          <InputLeftElement pointerEvents="none">
-                            <MdOutlineEmail color="gray.800" />
-                          </InputLeftElement>
-                          <Input type="text" size="md" />
-                        </InputGroup>
-                      </FormControl>
-                      <FormControl id="name">
-                        <FormLabel>Mensaje:</FormLabel>
-                        <Textarea
-                          borderColor="gray.300"
-                          _hover={{
-                            borderRadius: 'gray.300',
-                          }}
-                          placeholder="message"
-                        />
-                      </FormControl>
-                      <FormControl id="name" float="right">
-                        <Button variant="solid" bg="#0D74FF" color="white" _hover={{}}>
-                          Send Message
-                        </Button>
-                      </FormControl>
+                      <form ref={form} onSubmit={sendEmail}>
+                        <FormControl id="name">
+                          <FormLabel>Tu Nombre:</FormLabel>
+                          <InputGroup borderColor="#E0E1E7">
+                            <InputLeftElement pointerEvents="none">
+                              <BsPerson color="gray.800" />
+                            </InputLeftElement>
+                            <Input type="text" size="md" name="user_name" />
+                          </InputGroup>
+                        </FormControl>
+                        <FormControl id="email">
+                          <FormLabel>Correo:</FormLabel>
+                          <InputGroup borderColor="#E0E1E7">
+                            <InputLeftElement pointerEvents="none">
+                              <MdOutlineEmail color="gray.800" />
+                            </InputLeftElement>
+                            <Input type="email" size="md" name="user_email" />
+                          </InputGroup>
+                        </FormControl>
+                        <FormControl id="message">
+                          <FormLabel>Mensaje:</FormLabel>
+                          <Textarea
+                            borderColor="gray.300"
+                            _hover={{
+                              borderRadius: 'gray.300',
+                            }}
+                            placeholder="Escribe tu mensaje aquí..."
+                            name="message"
+                          />
+                        </FormControl>
+                        <FormControl id="submit" float="right">
+                          <Button
+                            type="submit"
+                            variant="solid"
+                            bg="#0D74FF"
+                            color="white"
+                            _hover={{}}>
+                            Enviar Mensaje
+                          </Button>
+                        </FormControl>
+                      </form>
                     </VStack>
                   </Box>
                 </Box>
@@ -161,5 +169,5 @@ export default function Contact() {
         </Box>
       </Flex>
     </Container>
-  )
+  );
 }
