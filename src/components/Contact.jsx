@@ -84,35 +84,35 @@ export default function Contact() {
                     </VStack>
                   </Box>
                   <HStack
-                    mt={{ lg: 10, md: 10 }}
-                    spacing={5}
-                    px={5}
-                    alignItems="flex-start">
-                    <IconButton
-                      aria-label="linkedin"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: '#0D74FF' }}
-                      icon={<MdFacebook size="28px" />}
-                    />
-                    <IconButton
-                      aria-label="github"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: '#0D74FF' }}
-                      icon={<BsGithub size="28px" />}
-                    />
-                    <IconButton
-                      aria-label="discord"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: '#0D74FF' }}
-                      icon={<BsDiscord size="28px" />}
-                    />
-                  </HStack>
+  mt={{ lg: 10, md: 10 }}
+  spacing={5}
+  px={5}
+  alignItems="flex-start"
+>
+  <a href="https://www.linkedin.com/in/jhonatancarreazo/" target="_blank" rel="noopener noreferrer">
+    <IconButton
+      aria-label="linkedin"
+      variant="ghost"
+      size="lg"
+      isRound={true}
+      _hover={{ bg: '#0D74FF' }}
+      icon={<AiFillLinkedin size="28px" color="white" />}
+    />
+  </a>
+  <a href="https://github.com/jhonatancarreazo" target="_blank" rel="noopener noreferrer">
+    <IconButton
+      aria-label="github"
+      variant="ghost"
+      size="lg"
+      isRound={true}
+      _hover={{ bg: '#0D74FF' }}
+      icon={<BsGithub size="28px" color="white" />}
+    />
+  </a>
+  
+</HStack>
+
+                  
                 </Box>
               </WrapItem>
               <WrapItem>
