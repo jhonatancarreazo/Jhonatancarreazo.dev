@@ -24,7 +24,8 @@ import { Link as RouterLink } from 'react-router-dom';
 const Links = [
   { name: 'Sobre mi', path: '/sobre-mi' },
   { name: 'Proyectos', path: '/proyectos' },
-  { name: 'Contacto', path: '/contacto' }
+  { name: 'Contacto', path: '/contacto' },
+  { name: 'Blog', path: '/blog' }
 ];
 
 const NavLink = ({ children, path }) => {
