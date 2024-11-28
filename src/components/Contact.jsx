@@ -21,7 +21,7 @@ import {
 } from '@chakra-ui/react';
 import { BsGithub, BsPerson } from 'react-icons/bs';
 import { AiFillLinkedin } from 'react-icons/ai';
-import React, { useRef } from 'react';
+// import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
@@ -87,7 +87,7 @@ export default function Contact() {
                         size="lg"
                         isRound={true}
                         _hover={{ bg: '#0D74FF' }}
-                        icon={<AiFillLinkedin size="28px" color="white" />}
+                        //icon={<AiFillLinkedin size="28px" color="white" />}
                       />
                     </a>
                     <a href="https://github.com/jhonatancarreazo" target="_blank" rel="noopener noreferrer">
