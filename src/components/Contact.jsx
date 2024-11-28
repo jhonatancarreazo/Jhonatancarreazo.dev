@@ -27,6 +27,7 @@ import {
   MdOutlineEmail,
 } from 'react-icons/md'
 import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs'
+import { AiFillLinkedin } from 'react-icons/ai';
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
