@@ -90,11 +90,18 @@ export default function Contact() {
   alignItems="flex-start"
 >
   <a href="https://www.linkedin.com/in/jhonatancarreazo/" target="_blank" rel="noopener noreferrer">
-   
+    <IconButton
+      aria-label="linkedin"
+      variant="ghost"
+      size="lg"
+      isRound={true}
+      _hover={{ bg: '#0D74FF' }}
+      icon={<AiFillLinkedin size="28px" color="white" />}
+    />
   </a>
   <a href="https://github.com/jhonatancarreazo" target="_blank" rel="noopener noreferrer">
     <IconButton
-      aria-label="github"
+      aria-label="github"  
       variant="ghost"
       size="lg"
       isRound={true}
