@@ -18,15 +18,15 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 import {
   MdPhone,
   MdEmail,
   MdLocationOn,
   MdFacebook,
   MdOutlineEmail,
-} from 'react-icons/md'
-import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs'
+} from 'react-icons/md';
+import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 import { AiFillLinkedin } from 'react-icons/ai';
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
