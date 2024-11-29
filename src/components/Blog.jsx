@@ -15,7 +15,7 @@ export default function Blog() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const querySnapshot = await getDocs(collection(db, 'posts'));
+      const querySnapshot = await getDocs(collection(db, 'post'));
       const fetchedPosts = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
