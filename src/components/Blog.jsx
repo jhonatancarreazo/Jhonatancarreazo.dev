@@ -3,6 +3,12 @@ import ReactMarkdown from 'react-markdown';
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebaseConfig';
+import { Timestamp } from 'firebase/firestore';
+
+const formatDate = (timestamp) => {
+  const date = timestamp.toDate();
+  return date.toLocaleDateString();
+};
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -26,7 +32,7 @@ export default function Blog() {
       {posts.map((post) => (
         <Box key={post.id} mb={5}>
           <Heading as="h2" size="lg">{post.title}</Heading>
-          <Text>{post.date}</Text>
+          <Text>{formatDate(post.date)}</Text>
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </Box>
       ))}
